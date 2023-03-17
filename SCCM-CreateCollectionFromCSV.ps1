@@ -6,6 +6,7 @@
     Notes:
         Created by: John Wetzler
         Created date: March 16, 2023
+        https://github.com/JohnWetzler/SCCM-Scripts/edit/main/SCCM-CreateCollectionFromCSV.ps1
         References: https://learn.microsoft.com/en-us/powershell/module/configurationmanager/new-cmdevicecollection?view=sccm-ps
 #>
 
@@ -68,7 +69,7 @@ ForEach($Collection in $CSV){
                     Add-CMDeviceCollectionQueryMembershipRule -CollectionName $Collection.CollectionName -RuleName $Collection.QueryName -QueryExpression $Collection.QueryRule | Out-Null
                     
                     #Add RefreshSchedule here if desired.
-                    Write-Host $Collection.CollectionName": Created succesfully."
+                    Write-Host $Collection.CollectionName": Created successfully."
                 }
         }
 }
