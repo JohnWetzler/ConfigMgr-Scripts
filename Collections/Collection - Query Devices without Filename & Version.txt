@@ -1,0 +1,7 @@
+SELECT SMS_R_SYSTEM.ResourceID,SMS_R_SYSTEM.ResourceType,SMS_R_SYSTEM.Name,SMS_R_SYSTEM.SMSUniqueIdentifier,SMS_R_SYSTEM.ResourceDomainORWorkgroup,SMS_R_SYSTEM.Client
+FROM SMS_R_System INNER JOIN SMS_G_System_SYSTEM ON SMS_G_System_SYSTEM.ResourceID = SMS_R_System.ResourceId
+WHERE SMS_G_System_SYSTEM.Name 
+NOT IN (SELECT SMS_G_System_SYSTEM.Name
+FROM  SMS_R_System INNER JOIN SMS_G_System_SYSTEM ON SMS_G_System_SYSTEM.ResourceID = SMS_R_System.ResourceId INNER JOIN SMS_G_System_SoftwareFile ON SMS_G_System_SoftwareFile.ResourceID = SMS_R_System.ResourceId
+
+WHERE SMS_G_System_SoftwareFile.FileName = "DLOClientu.exe" AND SMS_G_System_SoftwareFile.FileVersion = "3.10.338.7401" AND SMS_R_System.Client = 1)
