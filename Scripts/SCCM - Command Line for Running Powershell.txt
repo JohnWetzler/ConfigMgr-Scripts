@@ -1,0 +1,2 @@
+SCCM - Command to run powershell script:
+powershell.exe -ExecutionPolicy Bypass -NoLogo -NonInteractive -NoProfile -WindowStyle Hidden -File "Dell-WavesMaxxAudio.ps1"
